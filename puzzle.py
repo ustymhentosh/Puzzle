@@ -1,5 +1,4 @@
-# Puzzle
-
+""" Puzzle """
 
 
 def validate_one_colour(board, number_of_column):
@@ -59,6 +58,11 @@ def validate_columns(board):
 
 
 def validate_colour(board):
+    """
+    Checks colour
+    >>> validate_colour(["**** ****", "***1 ****", "**  3****", "* 4 1****","     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
+    True
+    """
     for i in range(5):
         # print(i)
         if not validate_one_colour(board, i):
@@ -68,4 +72,11 @@ def validate_colour(board):
 
 
 def validate_board(board):
-    pass
+    """
+    Checks board
+    >>> validate_board(["**** ****","***1 ****","**  3****","* 4 1****","     9 5 "," 6  83  *","3   1  **","  8  2***","  2  ****"])
+    False
+    """
+    if validate_colour(board) and validate_columns(board) and validate_row(board):
+        return True
+    return False
